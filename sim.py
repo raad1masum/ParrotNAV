@@ -21,4 +21,8 @@ roll_right = '//*[@id="roll-right-button"]'
 sleep(30)
 
 for i in range(20):
-    driver.find_element_by_xpath(pitch_up).click()
+    # driver.find_element_by_xpath(pitch_up).click()
+    pass
+
+while True:
+    print(driver.find_element_by_xpath('//*[@id="x-range"]/div').text)
