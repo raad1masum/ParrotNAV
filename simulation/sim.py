@@ -1,6 +1,7 @@
 from selenium import webdriver
 from time import sleep
 
+
 driver = webdriver.Edge(
     '/mnt/c/Users/raad1/Documents/Webdrivers/edgedriver_win64/msedgedriver.exe')
 driver.get('https://iss-sim.spacex.com/')
@@ -20,9 +21,7 @@ roll_right = '//*[@id="roll-right-button"]'
 
 sleep(30)
 
-for i in range(20):
-    # driver.find_element_by_xpath(pitch_up).click()
-    pass
+# driver.find_element_by_xpath(pitch_up).click()
 
-while True:
-    print(driver.find_element_by_xpath('//*[@id="x-range"]/div').text)
+# while True:
+#     print(driver.find_element_by_xpath('//*[@id="x-range"]/div').text)
