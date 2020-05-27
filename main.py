@@ -1,4 +1,5 @@
 from simulation import sim
 from simulation.sim import *
+from controls import controls
 
-sim.control(sim.pitch_up)
+control(controls.pitch_up)
