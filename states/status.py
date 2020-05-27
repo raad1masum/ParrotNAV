@@ -1,4 +1,4 @@
-from states.states import *
+from states.info import *
 from simulation.sim import get_info
 
 
