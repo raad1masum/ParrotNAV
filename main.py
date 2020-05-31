@@ -1,5 +1,3 @@
-import threading
-
 from simulation import sim
 from simulation.sim import *
 from controls import controls
