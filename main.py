@@ -32,7 +32,6 @@ def move_right(correction_rate):
     print(list)
 
 
-# while True:
 while float(get_info(yaw_error_state).rstrip('°')) != 0.0:
     if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
         move_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
