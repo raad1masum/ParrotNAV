@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import random
+from datetime import datetime
 
 from simulation.sim import control
 from controls import controls
@@ -11,6 +12,7 @@ kp = 1
 
 list = []
 
+current_datetime = datetime.now()
 
 def move_left(correction_rate):
     for i in range(correction_rate):
@@ -39,7 +41,7 @@ if float(get_info(yaw_error_state).rstrip('°')) > 0.0:
 plt.plot(list, color='r')
 plt.style.use('seaborn-bright')
 plt.axhline(linewidth=4, color='g')
-plt.xlabel('Time (seconds)', fontsize=18)
+plt.xlabel('Time (seconds)', fontsize=16)
 plt.ylabel('Error (degrees)', fontsize=16)
 plt.grid()
-plt.savefig(f'data/yaw/yaw_data_{random.randint(9999,999999)}.png')
+plt.savefig(f'data/yaw/yaw_data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
