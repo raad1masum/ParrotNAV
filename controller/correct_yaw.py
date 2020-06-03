@@ -20,8 +20,6 @@ def move_left(correction_rate):
     for i in range(correction_rate):
         control(controls.yaw_right)
         list.append(float(get_info(yaw_error_state).rstrip('°')))
-    print(list)
-
 
 def move_right(correction_rate):
     for i in range(correction_rate):
@@ -30,7 +28,6 @@ def move_right(correction_rate):
     for i in range(correction_rate):
         control(controls.yaw_left)
         list.append(float(get_info(yaw_error_state).rstrip('°')))
-    print(list)
 
 while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != 0.0:
     if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
