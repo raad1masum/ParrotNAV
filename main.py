@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import random
 
 from simulation import sim
 from simulation.sim import *
@@ -56,4 +55,4 @@ while True:
         plt.xlabel('Time (seconds)', fontsize=18)
         plt.ylabel('Error (degrees)', fontsize=16)
         plt.grid()
-        plt.savefig(f'data/data_{random.randint(9999,999999)}.png')
+        plt.savefig('data/data.png')
