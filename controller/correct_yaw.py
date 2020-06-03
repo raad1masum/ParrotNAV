@@ -3,10 +3,9 @@ import numpy as np
 import random
 from datetime import datetime
 
-from simulation.sim import control
-from controls import controls
+from simulation.sim import *
 from states.states import *
-from states.status import status
+from controls import controls
 
 kp = 1
 
