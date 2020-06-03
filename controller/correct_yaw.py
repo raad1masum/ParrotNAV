@@ -34,11 +34,11 @@ if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
     move_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
 if float(get_info(yaw_error_state).rstrip('°')) > 0.0:
     move_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
-if float(get_info(yaw_error_state).rstrip('°')) == 0.0:
-    plt.plot(list, color='r')
-    plt.style.use('seaborn-bright')
-    plt.axhline(linewidth=4, color='g')
-    plt.xlabel('Time (seconds)', fontsize=18)
-    plt.ylabel('Error (degrees)', fontsize=16)
-    plt.grid()
-    plt.savefig('data/yaw/yaw_data.png')
+
+plt.plot(list, color='r')
+plt.style.use('seaborn-bright')
+plt.axhline(linewidth=4, color='g')
+plt.xlabel('Time (seconds)', fontsize=18)
+plt.ylabel('Error (degrees)', fontsize=16)
+plt.grid()
+plt.savefig('data/yaw/yaw_data.png')
