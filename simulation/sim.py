@@ -5,6 +5,7 @@ DRIVER_LOCATION = '/mnt/c/Users/raad1/Documents/Webdrivers/edgedriver_win64/msed
 driver = webdriver.Edge(DRIVER_LOCATION)
 driver.get('https://iss-sim.spacex.com/')
 
+begin_button = "//*[@id='begin_button']"
 
 def get_info(info):
     return driver.find_element_by_xpath(info).text
@@ -13,5 +14,6 @@ def get_info(info):
 def control(control):
     driver.find_element_by_xpath(control).click()
 
+sleep(20)
 
-sleep(30)
+driver.find_element_by_xpath(begin_button).click()
