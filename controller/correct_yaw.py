@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import random
 
 from simulation.sim import control
 from controls import controls
@@ -41,4 +42,4 @@ plt.axhline(linewidth=4, color='g')
 plt.xlabel('Time (seconds)', fontsize=18)
 plt.ylabel('Error (degrees)', fontsize=16)
 plt.grid()
-plt.savefig('data/yaw/yaw_data.png')
+plt.savefig(f'data/yaw/yaw_data_{random.randint(9999,999999)}.png')
