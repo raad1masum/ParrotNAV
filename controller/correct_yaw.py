@@ -39,10 +39,11 @@ while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != 0.0:
     if float(get_info(yaw_error_state).rstrip('°')) > 0.0:
         move_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
 
-plt.plot(list, color='r')
-plt.style.use('seaborn-bright')
-plt.axhline(linewidth=4, color='b')
-plt.xlabel('Time (seconds)', fontsize=16)
-plt.ylabel('Error (degrees)', fontsize=16)
-plt.grid()
-plt.savefig(f'data/yaw/yaw_data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
+def plot_data():
+    plt.plot(list, color='r')
+    plt.style.use('seaborn-bright')
+    plt.axhline(linewidth=4, color='b')
+    plt.xlabel('Time (seconds)', fontsize=16)
+    plt.ylabel('Error (°)', fontsize=16)
+    plt.grid()
+    plt.savefig(f'data/yaw/yaw_data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
