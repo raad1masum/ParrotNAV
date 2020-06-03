@@ -14,6 +14,12 @@ def get_info(info):
 def control(control):
     driver.find_element_by_xpath(control).click()
 
+print('Starting simulation')
+
 sleep(20)
 
 driver.find_element_by_xpath(begin_button).click()
+
+sleep(10)
+
+print('Starting controller')
