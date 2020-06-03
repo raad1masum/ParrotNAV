@@ -33,14 +33,15 @@ def move_right(correction_rate):
         list.append(float(get_info(yaw_error_state).rstrip('°')))
     print(list)
 
-if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
-    move_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
-if float(get_info(yaw_error_state).rstrip('°')) > 0.0:
-    move_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
+while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != 0.0:
+    if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
+        move_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
+    if float(get_info(yaw_error_state).rstrip('°')) > 0.0:
+        move_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
 
 plt.plot(list, color='r')
 plt.style.use('seaborn-bright')
-plt.axhline(linewidth=4, color='g')
+plt.axhline(linewidth=4, color='b')
 plt.xlabel('Time (seconds)', fontsize=16)
 plt.ylabel('Error (degrees)', fontsize=16)
 plt.grid()
