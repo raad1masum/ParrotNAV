@@ -14,14 +14,14 @@ def get_info(info):
 def control(control):
     driver.find_element_by_xpath(control).click()
 
-print('Starting Simulation')
+print('ParrotNAV: Starting Simulation')
 
 sleep(20)
 
-print('Entering Simulation')
+print('ParrotNAV: Entering Simulation')
 
 driver.find_element_by_xpath(begin_button).click()
 
 sleep(10)
 
-print('Starting Controller')
+print('ParrotNAV: Starting Controller')
