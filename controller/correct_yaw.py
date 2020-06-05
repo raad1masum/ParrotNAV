@@ -44,12 +44,6 @@ def is_correct():
     else:
         return False
 
-while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != 0.0:
-    if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
-        move_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
-    if float(get_info(yaw_error_state).rstrip('°')) > 0.0:
-        move_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
-
 def plot_data():
     plt.plot(yaw_data, color='r')
     plt.style.use('seaborn-bright')
@@ -58,3 +52,10 @@ def plot_data():
     plt.ylabel('Error (°)', fontsize=16)
     plt.grid()
     plt.savefig(f'data/yaw/yaw_data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
+
+def run():
+    while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != 0.0:
+        if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
+            move_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
+        if float(get_info(yaw_error_state).rstrip('°')) > 0.0:
+            move_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
