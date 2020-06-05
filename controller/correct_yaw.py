@@ -38,7 +38,8 @@ def increment_single():
         control(controls.yaw_left)
 
 def is_correct():
-    if int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) == 0.0:
+    print(abs(kp * float(get_info(yaw_error_state).rstrip('°'))))
+    if abs(kp * float(get_info(yaw_error_state).rstrip('°'))) == 0.0:
         return True
     else:
         return False
