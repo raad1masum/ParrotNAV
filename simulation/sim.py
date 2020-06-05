@@ -7,12 +7,14 @@ driver.get('https://iss-sim.spacex.com/')
 
 begin_button = "//*[@id='begin-button']"
 
+
 def get_info(info):
     return driver.find_element_by_xpath(info).text
 
 
 def control(control):
     driver.find_element_by_xpath(control).click()
+
 
 print('ParrotNAV: Starting Simulation')
 
