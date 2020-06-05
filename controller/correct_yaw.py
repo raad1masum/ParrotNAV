@@ -29,6 +29,20 @@ def move_right(correction_rate):
         control(controls.yaw_left)
         yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
 
+def increment_single():
+    if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
+        control(controls.yaw_left)
+        control(controls.yaw_right)
+    if float(get_info(yaw_error_state).rstrip('°')) > 0.0:
+        control(controls.yaw_right)
+        control(controls.yaw_left)
+
+def is_correct():
+    if int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) == 0.0:
+        return True
+    else:
+        return False
+
 while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != 0.0:
     if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
         move_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
