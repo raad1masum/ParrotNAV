@@ -9,25 +9,25 @@ from controls import controls
 
 kp = 1
 
-list = []
+yaw_data = []
 
 current_datetime = datetime.now()
 
 def move_left(correction_rate):
     for i in range(correction_rate):
         control(controls.yaw_left)
-        list.append(float(get_info(yaw_error_state).rstrip('°')))
+        yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
     for i in range(correction_rate):
         control(controls.yaw_right)
-        list.append(float(get_info(yaw_error_state).rstrip('°')))
+        yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
 
 def move_right(correction_rate):
     for i in range(correction_rate):
         control(controls.yaw_right)
-        list.append(float(get_info(yaw_error_state).rstrip('°')))
+        yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
     for i in range(correction_rate):
         control(controls.yaw_left)
-        list.append(float(get_info(yaw_error_state).rstrip('°')))
+        yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
 
 while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != 0.0:
     if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
@@ -36,7 +36,7 @@ while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != 0.0:
         move_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
 
 def plot_data():
-    plt.plot(list, color='r')
+    plt.plot(yaw_data, color='r')
     plt.style.use('seaborn-bright')
     plt.axhline(linewidth=4, color='b')
     plt.xlabel('Time (seconds)', fontsize=16)
