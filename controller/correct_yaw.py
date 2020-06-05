@@ -8,6 +8,7 @@ from states.states import *
 from controls import controls
 
 kp = 1
+target = 0.0
 
 yaw_data = []
 
@@ -30,17 +31,17 @@ def move_right(correction_rate):
         yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
 
 def increment_single():
-    if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
+    if float(get_info(yaw_error_state).rstrip('°')) < target:
         control(controls.yaw_left)
         control(controls.yaw_right)
         yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
-    if float(get_info(yaw_error_state).rstrip('°')) > 0.0:
+    if float(get_info(yaw_error_state).rstrip('°')) > target:
         control(controls.yaw_right)
         control(controls.yaw_left)
         yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
 
 def is_correct():
-    if abs(kp * float(get_info(yaw_error_state).rstrip('°'))) == 0.0:
+    if abs(kp * float(get_info(yaw_error_state).rstrip('°'))) == target:
         return True
     else:
         return False
@@ -58,8 +59,8 @@ def plot_data():
     plt.savefig(f'data/yaw/yaw_data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
 
 def run():
-    while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != 0.0:
-        if float(get_info(yaw_error_state).rstrip('°')) < 0.0:
+    while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != target:
+        if float(get_info(yaw_error_state).rstrip('°')) < target:
             move_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
-        if float(get_info(yaw_error_state).rstrip('°')) > 0.0:
+        if float(get_info(yaw_error_state).rstrip('°')) > target:
             move_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
