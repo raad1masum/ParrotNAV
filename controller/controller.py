@@ -11,7 +11,7 @@ def roll():
     correct_roll.run()
     while correct_roll.get_roll_error() != correct_roll.target:
         correct_roll.increment_single()
-    data.plot()
+    data.plot() # this should go in the very last function
 
 yaw_run = threading.Thread(target=yaw)
 roll_run = threading.Thread(target=roll)
