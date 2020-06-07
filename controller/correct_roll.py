@@ -50,13 +50,13 @@ def get_roll_error():
     return abs(kp * float(get_info(roll_error_state).rstrip('°')))
 
 def plot_data():
-    plt.plot(roll_data, color='r')
+    plt.plot(roll_data, color='g')
     plt.style.use('seaborn-bright')
     plt.axhline(linewidth=4, color='b')
     plt.xlabel('Time (seconds)', fontsize=16)
     plt.ylabel('Error (°)', fontsize=16)
     plt.grid()
-    plt.savefig(f'data/roll/roll_data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
+    plt.savefig(f'data/all/data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
 
 def run():
     while int(abs(kp * float(get_info(roll_error_state).rstrip('°')))) != target:
