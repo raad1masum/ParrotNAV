@@ -1,5 +1,4 @@
 from controller import correct_yaw, correct_roll
-from data import data
 import threading
 
 def yaw():
@@ -17,5 +16,3 @@ roll_run = threading.Thread(target=roll)
 
 yaw_run.start()
 roll_run.start()
-
-data.plot()
