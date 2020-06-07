@@ -7,7 +7,7 @@ from states.states import *
 from controls import controls
 
 # set constants & gains
-kp = 2.1
+kp = 1.1
 setpoint = 0.0
 
 # data for plotting
