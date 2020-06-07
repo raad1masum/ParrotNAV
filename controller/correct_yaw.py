@@ -7,7 +7,7 @@ from simulation.sim import *
 from states.states import *
 from controls import controls
 
-kp = 0.7
+kp = 0.5
 target = 0.0
 
 yaw_data = []

@@ -14,30 +14,30 @@ pitch_data = []
 
 current_datetime = datetime.now()
 
-def pitch_left(correction_rate):
+def pitch_up(correction_rate):
     for i in range(correction_rate):
-        control(controls.pitch_left)
+        control(controls.pitch_up)
         pitch_data.append(float(get_info(pitch_error_state).rstrip('°')))
     for i in range(correction_rate):
-        control(controls.pitch_right)
+        control(controls.pitch_down)
         pitch_data.append(float(get_info(pitch_error_state).rstrip('°')))
 
-def pitch_right(correction_rate):
+def pitch_down(correction_rate):
     for i in range(correction_rate):
-        control(controls.pitch_right)
+        control(controls.pitch_down)
         pitch_data.append(float(get_info(pitch_error_state).rstrip('°')))
     for i in range(correction_rate):
-        control(controls.pitch_left)
+        control(controls.pitch_up)
         pitch_data.append(float(get_info(pitch_error_state).rstrip('°')))
 
 def increment_single():
     if float(get_info(pitch_error_state).rstrip('°')) < target:
-        control(controls.pitch_left)
-        control(controls.pitch_right)
+        control(controls.pitch_up)
+        control(controls.pitch_down)
         pitch_data.append(float(get_info(pitch_error_state).rstrip('°')))
     if float(get_info(pitch_error_state).rstrip('°')) > target:
-        control(controls.pitch_right)
-        control(controls.pitch_left)
+        control(controls.pitch_down)
+        control(controls.pitch_up)
         pitch_data.append(float(get_info(pitch_error_state).rstrip('°')))
 
 def is_correct():
@@ -61,6 +61,6 @@ def plot_data():
 def run():
     while int(abs(kp * float(get_info(pitch_error_state).rstrip('°')))) != target:
         if float(get_info(pitch_error_state).rstrip('°')) < target:
-            pitch_left(int(abs(kp * float(get_info(pitch_error_state).rstrip('°')))))
+            pitch_up(int(abs(kp * float(get_info(pitch_error_state).rstrip('°')))))
         if float(get_info(pitch_error_state).rstrip('°')) > target:
-            pitch_right(int(abs(kp * float(get_info(pitch_error_state).rstrip('°')))))
+            pitch_down(int(abs(kp * float(get_info(pitch_error_state).rstrip('°')))))
