@@ -6,5 +6,5 @@ pitch_kp = 0.35
 pitch_setpoint = 0.0
 horizontal_kp = 1.2
 horizontal_setpoint = 0.0
-vertical_kp = 0.7
+vertical_kp = 0.6
 vertical_setpoint = 0.0
