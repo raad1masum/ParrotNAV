@@ -1,4 +1,4 @@
-from controller import correct_yaw, correct_roll, correct_pitch, correct_horizontal, correct_vertical
+from controller import correct_yaw, correct_roll, correct_pitch, correct_vertical, correct_horizontal
 
 # plot data
 def plot():

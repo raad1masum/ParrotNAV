@@ -1,4 +1,4 @@
-from controller import correct_yaw, correct_roll, correct_pitch, correct_horizontal
+from controller import correct_yaw, correct_roll, correct_pitch, correct_vertical, correct_horizontal
 from data import data
 import threading
 
