@@ -42,18 +42,24 @@ yaw_thread = threading.Thread(target=yaw)
 roll_thread = threading.Thread(target=roll)
 pitch_thread = threading.Thread(target=pitch)
 
+horizontal_thread = threading.Thread(target=horizontal)
+
 # axis start
 yaw_thread.start()
 roll_thread.start()
 pitch_thread.start()
+
+horizontal_thread.start()
 
 # wait for axis correction to finish
 yaw_thread.join()
 roll_thread.join()
 pitch_thread.join()
 
+horizontal_thread.join()
+
 # translation threads
-horizontal_thread = threading.Thread(target=horizontal)
+# horizontal_thread = threading.Thread(target=horizontal)
 
 # translation start
-horizontal_thread.start()
+# horizontal_thread.start()
