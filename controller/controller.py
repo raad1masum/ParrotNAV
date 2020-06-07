@@ -5,6 +5,7 @@ import threading
 # yaw_finished = False
 # roll_finished = False
 # pitch_finished = False
+horizontal_finished = False
 
 # def yaw():
 #     correct_yaw.run()
@@ -29,6 +30,7 @@ def horizontal():
     correct_horizontal.run()
     while correct_horizontal.get_horizontal_error() != correct_horizontal.target:
         correct_horizontal.increment_single()
+    horizontal_finished = True
     data.plot_translation() # this should go in the very last translation function
 
 # yaw_run = threading.Thread(target=yaw)
