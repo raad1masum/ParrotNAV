@@ -42,3 +42,6 @@ roll_thread.start()
 pitch_thread.start()
 
 horizontal_thread = threading.Thread(target=horizontal)
+
+if yaw_finished and roll_finished and pitch_finished:
+    horizontal_thread.start()
