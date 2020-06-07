@@ -23,13 +23,13 @@ import threading
 #     while correct_pitch.get_pitch_error() != correct_pitch.target:
 #         correct_pitch.increment_single()
 #     pitch_finished = True
-#     data.plot_axis() # this should go in the very last function
+#     data.plot_axis() # this should go in the very last axis function
 
 def horizontal():
     correct_horizontal.run()
     while correct_horizontal.get_horizontal_error() != correct_horizontal.target:
         correct_horizontal.increment_single()
-    data.plot_translation() # this should go in the very last function
+    data.plot_translation() # this should go in the very last translation function
 
 # yaw_run = threading.Thread(target=yaw)
 # roll_run = threading.Thread(target=roll)
