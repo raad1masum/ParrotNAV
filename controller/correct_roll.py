@@ -50,7 +50,7 @@ def get_roll_error():
     return abs(kp * float(get_info(roll_error_state).rstrip('°')))
 
 def plot_data():
-    plt.plot(roll_data, color='r')
+    plt.plot(roll_data, color='g')
     plt.style.use('seaborn-bright')
     plt.axhline(linewidth=4, color='b')
     plt.xlabel('Time (seconds)', fontsize=16)
