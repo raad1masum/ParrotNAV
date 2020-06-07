@@ -8,7 +8,7 @@ from controls import controls
 
 # set constants & gains
 kp = 0.5
-target = 0.0
+setpoint = 0.0
 
 # data for plotting
 yaw_data = []
@@ -36,18 +36,18 @@ def yaw_right(correction_rate):
 
 # single incrementation
 def increment_single():
-    if float(get_info(yaw_error_state).rstrip('°')) < target:
+    if float(get_info(yaw_error_state).rstrip('°')) < setpoint:
         control(controls.yaw_left)
         control(controls.yaw_right)
         yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
-    if float(get_info(yaw_error_state).rstrip('°')) > target:
+    if float(get_info(yaw_error_state).rstrip('°')) > setpoint:
         control(controls.yaw_right)
         control(controls.yaw_left)
         yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
 
 # return if on setpoint
 def is_correct():
-    if abs(kp * float(get_info(yaw_error_state).rstrip('°'))) == target:
+    if abs(kp * float(get_info(yaw_error_state).rstrip('°'))) == setpoint:
         return True
     else:
         return False
@@ -68,8 +68,8 @@ def plot_data():
 
 # run correction loop
 def run():
-    while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != target:
-        if float(get_info(yaw_error_state).rstrip('°')) < target:
+    while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != setpoint:
+        if float(get_info(yaw_error_state).rstrip('°')) < setpoint:
             yaw_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
-        if float(get_info(yaw_error_state).rstrip('°')) > target:
+        if float(get_info(yaw_error_state).rstrip('°')) > setpoint:
             yaw_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))

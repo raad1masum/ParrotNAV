@@ -8,7 +8,7 @@ from controls import controls
 
 # set constants & gains
 kp = 2.1
-target = 0.0
+setpoint = 0.0
 
 # data for plotting
 horizontal_data = []
@@ -36,18 +36,18 @@ def translate_right(correction_rate):
 
 # single incrementation
 def increment_single():
-    if float(get_info(y_range_state).rstrip(' m')) < target:
+    if float(get_info(y_range_state).rstrip(' m')) < setpoint:
         control(controls.translate_right)
         control(controls.translate_left)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
-    if float(get_info(y_range_state).rstrip(' m')) > target:
+    if float(get_info(y_range_state).rstrip(' m')) > setpoint:
         control(controls.translate_left)
         control(controls.translate_right)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
 
 # return if on setpoint
 def is_correct():
-    if abs(kp * float(get_info(y_range_state).rstrip(' m'))) == target:
+    if abs(kp * float(get_info(y_range_state).rstrip(' m'))) == setpoint:
         return True
     else:
         return False
@@ -68,8 +68,8 @@ def plot_data():
 
 # run correction loop
 def run():
-    while int(abs(kp * float(get_info(y_range_state).rstrip(' m')))) != target:
-        if float(get_info(y_range_state).rstrip(' m')) < target:
+    while int(abs(kp * float(get_info(y_range_state).rstrip(' m')))) != setpoint:
+        if float(get_info(y_range_state).rstrip(' m')) < setpoint:
             translate_right(int(abs(kp * float(get_info(y_range_state).rstrip(' m')))))
-        if float(get_info(y_range_state).rstrip(' m')) > target:
+        if float(get_info(y_range_state).rstrip(' m')) > setpoint:
             translate_left(int(abs(kp * float(get_info(y_range_state).rstrip(' m')))))
