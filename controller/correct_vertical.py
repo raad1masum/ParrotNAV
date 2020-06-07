@@ -63,7 +63,7 @@ def get_vertical_error():
 
 # plot data
 def plot_data():
-    plt.plot(vertical_data, color='m')
+    plt.plot(vertical_data, color='c')
     plt.style.use('seaborn-bright')
     plt.axhline(linewidth=4, color='b')
     plt.xlabel('Time (seconds)', fontsize=16)
