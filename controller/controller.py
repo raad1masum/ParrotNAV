@@ -35,31 +35,24 @@ def horizontal():
     while correct_horizontal.get_horizontal_error() != correct_horizontal.setpoint:
         correct_horizontal.increment_single()
     horizontal_finished = True
-    data.plot() # this should go in the very last function
 
-# axis threads
+# create threads
 yaw_thread = threading.Thread(target=yaw)
 roll_thread = threading.Thread(target=roll)
 pitch_thread = threading.Thread(target=pitch)
-
 horizontal_thread = threading.Thread(target=horizontal)
 
-# axis start
+# start threads
 yaw_thread.start()
 roll_thread.start()
 pitch_thread.start()
-
 horizontal_thread.start()
 
-# wait for axis correction to finish
+# wait for correction to finish
 yaw_thread.join()
 roll_thread.join()
 pitch_thread.join()
-
 horizontal_thread.join()
 
-# translation threads
-# horizontal_thread = threading.Thread(target=horizontal)
-
-# translation start
-# horizontal_thread.start()
+# plot data
+data.plot()
