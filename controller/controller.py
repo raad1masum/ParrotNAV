@@ -20,6 +20,8 @@ def pitch():
 
 yaw_run = threading.Thread(target=yaw)
 roll_run = threading.Thread(target=roll)
+pitch_run = threading.Thread(target=pitch)
 
 yaw_run.start()
 roll_run.start()
+pitch_run.start()
