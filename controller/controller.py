@@ -28,7 +28,6 @@ def pitch():
     while correct_pitch.get_pitch_error() != correct_pitch.setpoint:
         correct_pitch.increment_single()
     pitch_finished = True
-    data.plot_axis() # this should go in the very last axis function
 
 # horizontal correction
 def horizontal():
@@ -36,7 +35,7 @@ def horizontal():
     while correct_horizontal.get_horizontal_error() != correct_horizontal.setpoint:
         correct_horizontal.increment_single()
     horizontal_finished = True
-    data.plot_translation() # this should go in the very last translation function
+    data.plot() # this should go in the very last function
 
 # axis threads
 yaw_thread = threading.Thread(target=yaw)
