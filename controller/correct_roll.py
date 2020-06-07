@@ -56,7 +56,7 @@ def plot_data():
     plt.xlabel('Time (seconds)', fontsize=16)
     plt.ylabel('Error (°)', fontsize=16)
     plt.grid()
-    plt.savefig(f'data/data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
+    plt.savefig(f'data/all/data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
 
 def run():
     while int(abs(kp * float(get_info(roll_error_state).rstrip('°')))) != target:
