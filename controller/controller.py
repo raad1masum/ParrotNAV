@@ -29,6 +29,7 @@ def horizontal():
     correct_horizontal.run()
     while correct_horizontal.get_horizontal_error() != correct_horizontal.target:
         correct_horizontal.increment_single()
+    data.plot_translation() # this should go in the very last function
 
 # yaw_run = threading.Thread(target=yaw)
 # roll_run = threading.Thread(target=roll)
