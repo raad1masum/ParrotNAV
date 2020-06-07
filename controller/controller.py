@@ -33,7 +33,6 @@ def pitch():
 # vertical correction
 def vertical():
     correct_vertical.run()
-    print('vertical done')
     while correct_vertical.get_vertical_error() != correct_vertical.setpoint:
         correct_vertical.increment_single()
     vertical_finished = True
@@ -41,7 +40,6 @@ def vertical():
 # horizontal correction
 def horizontal():
     correct_horizontal.run()
-    print('horizontal done')
     while correct_horizontal.get_horizontal_error() != correct_horizontal.setpoint:
         correct_horizontal.increment_single()
     horizontal_finished = True
