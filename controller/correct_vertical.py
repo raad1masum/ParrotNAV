@@ -37,13 +37,13 @@ def translate_down(correction_rate):
 
 # single incrementation
 def increment_single():
-    if float(get_info(z_range_state).rstrip(' m')) < setpoint:
+    if float(get_info(z_range_state).rstrip(' m')) > setpoint:
         control(controls.translate_up)
         control(controls.translate_up)
         control(controls.translate_down)
         control(controls.translate_down)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
-    if float(get_info(z_range_state).rstrip(' m')) > setpoint:
+    if float(get_info(z_range_state).rstrip(' m')) < setpoint:
         control(controls.translate_down)
         control(controls.translate_down)
         control(controls.translate_up)
