@@ -40,3 +40,5 @@ pitch_thread = threading.Thread(target=pitch)
 yaw_thread.start()
 roll_thread.start()
 pitch_thread.start()
+
+horizontal_thread = threading.Thread(target=horizontal)
