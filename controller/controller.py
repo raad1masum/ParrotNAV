@@ -1,4 +1,4 @@
-from controller import correct_yaw, correct_roll
+from controller import correct_yaw, correct_roll, correct_pitch
 from data import data
 import threading
 
@@ -11,6 +11,11 @@ def roll():
     correct_roll.run()
     while correct_roll.get_roll_error() != correct_roll.target:
         correct_roll.increment_single()
+
+def pitch():
+    correct_pitch.run()
+    while correct_pitch.get_pitch_error() != correct_pitch.target:
+        correct_pitch.increment_single()
     data.plot() # this should go in the very last function
 
 yaw_run = threading.Thread(target=yaw)
