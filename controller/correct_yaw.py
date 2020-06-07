@@ -14,7 +14,7 @@ yaw_data = []
 
 current_datetime = datetime.now()
 
-def move_left(correction_rate):
+def yaw_left(correction_rate):
     for i in range(correction_rate):
         control(controls.yaw_left)
         yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
@@ -22,7 +22,7 @@ def move_left(correction_rate):
         control(controls.yaw_right)
         yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
 
-def move_right(correction_rate):
+def yaw_right(correction_rate):
     for i in range(correction_rate):
         control(controls.yaw_right)
         yaw_data.append(float(get_info(yaw_error_state).rstrip('°')))
@@ -61,6 +61,6 @@ def plot_data():
 def run():
     while int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))) != target:
         if float(get_info(yaw_error_state).rstrip('°')) < target:
-            move_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
+            yaw_left(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
         if float(get_info(yaw_error_state).rstrip('°')) > target:
-            move_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
+            yaw_right(int(abs(kp * float(get_info(yaw_error_state).rstrip('°')))))
