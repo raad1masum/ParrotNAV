@@ -6,6 +6,7 @@ import threading
 yaw_finished = False
 roll_finished = False
 pitch_finished = False
+vertical_finished = False
 horizontal_finished = False
 
 # yaw correction
@@ -34,7 +35,7 @@ def vertical():
     correct_vertical.run()
     while correct_vertical.get_vertical_error() != correct_vertical.setpoint:
         correct_vertical.increment_single()
-    horizontal_finished = True
+    vertical_finished = True
 
 # horizontal correction
 def horizontal():
