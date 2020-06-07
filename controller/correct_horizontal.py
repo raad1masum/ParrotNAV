@@ -38,10 +38,14 @@ def translate_right(correction_rate):
 def increment_single():
     if float(get_info(y_range_state).rstrip(' m')) < setpoint:
         control(controls.translate_right)
+        control(controls.translate_right)
+        control(controls.translate_left)
         control(controls.translate_left)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
     if float(get_info(y_range_state).rstrip(' m')) > setpoint:
         control(controls.translate_left)
+        control(controls.translate_left)
+        control(controls.translate_right)
         control(controls.translate_right)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
 
