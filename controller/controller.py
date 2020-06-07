@@ -39,18 +39,22 @@ def horizontal():
     data.plot_translation() # this should go in the very last translation function
 
 # axis threads
-yaw_thread = threading.Thread(setpoint=yaw)
-roll_thread = threading.Thread(setpoint=roll)
-pitch_thread = threading.Thread(setpoint=pitch)
+yaw_thread = threading.Thread(target=yaw)
+roll_thread = threading.Thread(target=roll)
+pitch_thread = threading.Thread(target=pitch)
 
 # axis start
 yaw_thread.start()
 roll_thread.start()
 pitch_thread.start()
 
+# wait for axis correction to finish
+yaw_thread.join()
+roll_thread.join()
+pitch_thread.join()
+
 # translation threads
-horizontal_thread = threading.Thread(setpoint=horizontal)
+horizontal_thread = threading.Thread(target=horizontal)
 
 # translation start
-if yaw_finished and roll_finished and pitch_finished:
-    horizontal_thread.start()
+horizontal_thread.start()
