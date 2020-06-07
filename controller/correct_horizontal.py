@@ -58,7 +58,7 @@ def get_horizontal_error():
 
 # plot data
 def plot_data():
-    plt.plot(horizontal_data, color='y')
+    plt.plot(horizontal_data, color='b')
     plt.style.use('seaborn-bright')
     plt.axhline(linewidth=4, color='b')
     plt.xlabel('Time (seconds)', fontsize=16)
