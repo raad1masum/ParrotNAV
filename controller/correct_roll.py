@@ -7,7 +7,7 @@ from simulation.sim import *
 from states.states import *
 from controls import controls
 
-kp = 0.8
+kp = 1
 target = 0.0
 
 roll_data = []
@@ -56,7 +56,7 @@ def plot_data():
     plt.xlabel('Time (seconds)', fontsize=16)
     plt.ylabel('Error (°)', fontsize=16)
     plt.grid()
-    plt.savefig(f'data/roll/roll_data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
+    plt.savefig(f'data/data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
 
 def run():
     while int(abs(kp * float(get_info(roll_error_state).rstrip('°')))) != target:
