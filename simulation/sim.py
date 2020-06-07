@@ -1,7 +1,7 @@
 from selenium import webdriver
 from time import sleep
 
-DRIVER_LOCATION = '/mnt/c/Users/raad1/Documents/Webdrivers/edgedriver_win64/msedgedriver.exe'
+DRIVER_LOCATION = './drivers/edgedriver_win64/msedgedriver.exe'
 driver = webdriver.Edge(DRIVER_LOCATION)
 driver.get('https://iss-sim.spacex.com/')
 
