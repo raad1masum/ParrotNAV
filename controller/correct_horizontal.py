@@ -63,9 +63,10 @@ def get_horizontal_error():
 
 # plot data
 def plot_data():
-    plt.plot(horizontal_data, color='m')
+    plt.plot(horizontal_data, color='m', label="horizontal")
     plt.style.use('seaborn-bright')
     plt.axhline(linewidth=4, color='b')
+    plt.legend(loc="upper right")
     plt.xlabel('Time (seconds)', fontsize=16)
     plt.ylabel('Error (°)', fontsize=16)
     plt.grid()

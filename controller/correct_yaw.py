@@ -59,9 +59,10 @@ def get_yaw_error():
 
 # plot data
 def plot_data():
-    plt.plot(yaw_data, color='r')
+    plt.plot(yaw_data, color='r', label="yaw")
     plt.style.use('seaborn-bright')
     plt.axhline(linewidth=4, color='b')
+    plt.legend(loc="upper right")
     plt.xlabel('Time (seconds)', fontsize=16)
     plt.ylabel('Error (°)', fontsize=16)
     plt.grid()

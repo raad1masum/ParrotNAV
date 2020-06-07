@@ -59,9 +59,10 @@ def get_roll_error():
 
 # plot data
 def plot_data():
-    plt.plot(roll_data, color='g')
+    plt.plot(roll_data, color='g', label="roll")
     plt.style.use('seaborn-bright')
     plt.axhline(linewidth=4, color='b')
+    plt.legend(loc="upper right")
     plt.xlabel('Time (seconds)', fontsize=16)
     plt.ylabel('Error (°)', fontsize=16)
     plt.grid()

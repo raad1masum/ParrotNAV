@@ -63,8 +63,9 @@ def get_vertical_error():
 
 # plot data
 def plot_data():
-    plt.plot(vertical_data, color='c')
+    plt.plot(vertical_data, color='c', label="vertical")
     plt.style.use('seaborn-bright')
+    plt.legend(loc="upper right")
     plt.axhline(linewidth=4, color='b')
     plt.xlabel('Time (seconds)', fontsize=16)
     plt.ylabel('Error (°)', fontsize=16)
