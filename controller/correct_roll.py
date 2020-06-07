@@ -2,13 +2,14 @@ import matplotlib.pyplot as plt
 import random
 from datetime import datetime
 
+from PID.pid_controller import *
 from simulation.sim import *
 from states.states import *
 from controls import controls
 
 # set constants & gains
-kp = 0.43
-setpoint = 0.0
+kp = roll_kp
+setpoint = roll_setpoint
 
 # data for plotting
 roll_data = []

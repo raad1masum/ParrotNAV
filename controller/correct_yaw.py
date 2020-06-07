@@ -2,13 +2,14 @@ import matplotlib.pyplot as plt
 import random
 from datetime import datetime
 
+from PID.pid_controller import *
 from simulation.sim import *
 from states.states import *
 from controls import controls
 
 # set constants & gains
-kp = 0.47
-setpoint = 0.0
+kp = yaw_kp
+setpoint = yaw_setpoint
 
 # data for plotting
 yaw_data = []

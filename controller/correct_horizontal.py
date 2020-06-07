@@ -2,13 +2,14 @@ import matplotlib.pyplot as plt
 import random
 from datetime import datetime
 
+from PID.pid_controller import *
 from simulation.sim import *
 from states.states import *
 from controls import controls
 
 # set constants & gains
-kp = 1.1
-setpoint = 0.0
+kp = horizontal_kp
+setpoint = horizontal_setpoint
 
 # data for plotting
 horizontal_data = []
