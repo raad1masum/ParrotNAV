@@ -7,7 +7,7 @@ from simulation.sim import *
 from states.states import *
 from controls import controls
 
-kp = 0.5
+kp = 0.4
 target = 0.0
 
 pitch_data = []
