@@ -6,13 +6,17 @@ from simulation.sim import *
 from states.states import *
 from controls import controls
 
+# set constants & gains
 kp = 0.4
 target = 0.0
 
+# data for plotting
 pitch_data = []
 
+# set current date & time
 current_datetime = datetime.now()
 
+# pitch up
 def pitch_up(correction_rate):
     for i in range(correction_rate):
         control(controls.pitch_up)
@@ -21,6 +25,7 @@ def pitch_up(correction_rate):
         control(controls.pitch_down)
         pitch_data.append(float(get_info(pitch_error_state).rstrip('°')))
 
+# pitch down
 def pitch_down(correction_rate):
     for i in range(correction_rate):
         control(controls.pitch_down)
@@ -29,6 +34,7 @@ def pitch_down(correction_rate):
         control(controls.pitch_up)
         pitch_data.append(float(get_info(pitch_error_state).rstrip('°')))
 
+# single incrementation
 def increment_single():
     if float(get_info(pitch_error_state).rstrip('°')) < target:
         control(controls.pitch_up)
@@ -39,15 +45,18 @@ def increment_single():
         control(controls.pitch_up)
         pitch_data.append(float(get_info(pitch_error_state).rstrip('°')))
 
+# return if on setpoint
 def is_correct():
     if abs(kp * float(get_info(pitch_error_state).rstrip('°'))) == target:
         return True
     else:
         return False
 
+# return error
 def get_pitch_error():
     return abs(kp * float(get_info(pitch_error_state).rstrip('°')))
 
+# plot data
 def plot_data():
     plt.plot(pitch_data, color='y')
     plt.style.use('seaborn-bright')
@@ -57,6 +66,7 @@ def plot_data():
     plt.grid()
     plt.savefig(f'data/axis/data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
 
+# run correction loop
 def run():
     while int(abs(kp * float(get_info(pitch_error_state).rstrip('°')))) != target:
         if float(get_info(pitch_error_state).rstrip('°')) < target:

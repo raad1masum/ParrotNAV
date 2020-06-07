@@ -6,13 +6,17 @@ from simulation.sim import *
 from states.states import *
 from controls import controls
 
+# set constants & gains
 kp = 0.4
 target = 0.0
 
+# data for plotting
 roll_data = []
 
+# set current date & time
 current_datetime = datetime.now()
 
+# roll left
 def roll_left(correction_rate):
     for i in range(correction_rate):
         control(controls.roll_left)
@@ -21,6 +25,7 @@ def roll_left(correction_rate):
         control(controls.roll_right)
         roll_data.append(float(get_info(roll_error_state).rstrip('°')))
 
+# roll right
 def roll_right(correction_rate):
     for i in range(correction_rate):
         control(controls.roll_right)
@@ -29,6 +34,7 @@ def roll_right(correction_rate):
         control(controls.roll_left)
         roll_data.append(float(get_info(roll_error_state).rstrip('°')))
 
+# single incrementation
 def increment_single():
     if float(get_info(roll_error_state).rstrip('°')) < target:
         control(controls.roll_left)
@@ -39,15 +45,18 @@ def increment_single():
         control(controls.roll_left)
         roll_data.append(float(get_info(roll_error_state).rstrip('°')))
 
+# return if on setpoint
 def is_correct():
     if abs(kp * float(get_info(roll_error_state).rstrip('°'))) == target:
         return True
     else:
         return False
 
+# return error
 def get_roll_error():
     return abs(kp * float(get_info(roll_error_state).rstrip('°')))
 
+# plot data
 def plot_data():
     plt.plot(roll_data, color='g')
     plt.style.use('seaborn-bright')
@@ -57,6 +66,7 @@ def plot_data():
     plt.grid()
     plt.savefig(f'data/axis/data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
 
+# run correction loop
 def run():
     while int(abs(kp * float(get_info(roll_error_state).rstrip('°')))) != target:
         if float(get_info(roll_error_state).rstrip('°')) < target:
