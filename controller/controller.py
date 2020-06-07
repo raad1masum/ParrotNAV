@@ -33,10 +33,10 @@ def horizontal():
     horizontal_finished = True
     data.plot_translation() # this should go in the very last translation function
 
-yaw_run = threading.Thread(target=yaw)
-roll_run = threading.Thread(target=roll)
-pitch_run = threading.Thread(target=pitch)
+yaw_thread = threading.Thread(target=yaw)
+roll_thread = threading.Thread(target=roll)
+pitch_thread = threading.Thread(target=pitch)
 
-yaw_run.start()
-roll_run.start()
-pitch_run.start()
+yaw_thread.start()
+roll_thread.start()
+pitch_thread.start()
