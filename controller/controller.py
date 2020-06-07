@@ -47,18 +47,21 @@ def horizontal():
 yaw_thread = threading.Thread(target=yaw)
 roll_thread = threading.Thread(target=roll)
 pitch_thread = threading.Thread(target=pitch)
+vertical_thread = threading.Thread(target=vertical)
 horizontal_thread = threading.Thread(target=horizontal)
 
 # start threads
 yaw_thread.start()
 roll_thread.start()
 pitch_thread.start()
+vertical_thread.start()
 horizontal_thread.start()
 
 # wait for correction to finish
 yaw_thread.join()
 roll_thread.join()
 pitch_thread.join()
+vertical_thread.join()
 horizontal_thread.join()
 
 # plot data
