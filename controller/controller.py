@@ -29,6 +29,13 @@ def pitch():
         correct_pitch.increment_single()
     pitch_finished = True
 
+# vertical correction
+def vertical():
+    correct_vertical.run()
+    while correct_vertical.get_vertical_error() != correct_vertical.setpoint:
+        correct_vertical.increment_single()
+    horizontal_finished = True
+
 # horizontal correction
 def horizontal():
     correct_horizontal.run()
