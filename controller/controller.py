@@ -2,11 +2,6 @@ from controller import correct_yaw, correct_roll, correct_pitch, correct_horizon
 from data import data
 import threading
 
-correct_horizontal.run()
-while correct_horizontal.get_horizontal_error() != correct_horizontal.target:
-    correct_horizontal.increment_single()
-
-
 # yaw_finished = False
 # roll_finished = False
 # pitch_finished = False
@@ -29,6 +24,11 @@ while correct_horizontal.get_horizontal_error() != correct_horizontal.target:
 #         correct_pitch.increment_single()
 #     pitch_finished = True
 #     data.plot() # this should go in the very last function
+
+def horizontal():
+    correct_horizontal.run()
+    while correct_horizontal.get_horizontal_error() != correct_horizontal.target:
+        correct_horizontal.increment_single()
 
 # yaw_run = threading.Thread(target=yaw)
 # roll_run = threading.Thread(target=roll)
