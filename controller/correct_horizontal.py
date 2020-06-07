@@ -6,7 +6,7 @@ from simulation.sim import *
 from states.states import *
 from controls import controls
 
-kp = 0.4
+kp = 2.1
 target = 0.0
 
 horizontal_data = []
