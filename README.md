@@ -24,6 +24,7 @@ python main.py
 <p align="center">
 <img alt="demo" src="https://media.giphy.com/media/WsYQ2kWp6cSq7NoiMp/giphy.gif"/>
   <br>
+  <br>
 <img alt="plot" src="./static/plot.png"/>
 </p>
 
