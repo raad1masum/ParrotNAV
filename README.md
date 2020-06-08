@@ -20,6 +20,7 @@ python main.py
 ```
 
 ## 💻 Demo
+
 <p align="center">
 <img alt="demo" src="https://media.giphy.com/media/WsYQ2kWp6cSq7NoiMp/giphy.gif"/>
   <br>
@@ -27,10 +28,13 @@ python main.py
 <img alt="plot" src="./static/plot.png"/>
 </p>
 
-## 👨‍💻 Authors
+## 👨‍💻 Contact
 
-**Raadwan Masum**
-
+Linkedin: [Raadwan Masum](https://www.linkedin.com/in/raadwan-masum-9147bb1a5)
+<br>
+Github: [raad1masum](https://github.com/raad1masum)
+<br>
+Devpost: [Raadwan masum](https://devpost.com/raad1masum)
 
 ## 🤝 Contributing
 
