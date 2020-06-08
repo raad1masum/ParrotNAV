@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import random
+from time import sleep
 from datetime import datetime
 
 from PID.pid_controller import *
@@ -22,6 +23,7 @@ def translate_left(correction_rate):
     for i in range(correction_rate):
         control(controls.translate_left)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
+        sleep(1)
     for i in range(correction_rate):
         control(controls.translate_right)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
@@ -31,6 +33,7 @@ def translate_right(correction_rate):
     for i in range(correction_rate):
         control(controls.translate_right)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
+        sleep(1)
     for i in range(correction_rate):
         control(controls.translate_left)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
@@ -39,14 +42,12 @@ def translate_right(correction_rate):
 def increment_single():
     if float(get_info(y_range_state).rstrip(' m')) < setpoint:
         control(controls.translate_right)
-        control(controls.translate_right)
-        control(controls.translate_left)
+        sleep(1)
         control(controls.translate_left)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
     if float(get_info(y_range_state).rstrip(' m')) > setpoint:
         control(controls.translate_left)
-        control(controls.translate_left)
-        control(controls.translate_right)
+        sleep(1)
         control(controls.translate_right)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
 

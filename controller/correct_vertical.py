@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import random
+from time import sleep
 from datetime import datetime
 
 from PID.pid_controller import *
@@ -20,33 +21,33 @@ current_datetime = datetime.now()
 # translate up
 def translate_up(correction_rate):
     for i in range(correction_rate):
-        control(controls.translate_down)
-        vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
-    for i in range(correction_rate):
         control(controls.translate_up)
+        vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
+        sleep(1)
+    for i in range(correction_rate):
+        control(controls.translate_down)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
 
 # translate down
 def translate_down(correction_rate):
     for i in range(correction_rate):
-        control(controls.translate_up)
-        vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
-    for i in range(correction_rate):
         control(controls.translate_down)
+        vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
+        sleep(1)
+    for i in range(correction_rate):
+        control(controls.translate_up)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
 
 # single incrementation
 def increment_single():
-    if float(get_info(z_range_state).rstrip(' m')) > setpoint:
+    if float(get_info(z_range_state).rstrip(' m')) < setpoint:
         control(controls.translate_up)
-        control(controls.translate_up)
-        control(controls.translate_down)
+        sleep(1)
         control(controls.translate_down)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
-    if float(get_info(z_range_state).rstrip(' m')) < setpoint:
+    if float(get_info(z_range_state).rstrip(' m')) > setpoint:
         control(controls.translate_down)
-        control(controls.translate_down)
-        control(controls.translate_up)
+        sleep(1)
         control(controls.translate_up)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
 
@@ -76,6 +77,6 @@ def plot_data():
 def run():
     while int(abs(kp * float(get_info(z_range_state).rstrip(' m')))) != setpoint:
         if float(get_info(z_range_state).rstrip(' m')) < setpoint:
-            translate_down(int(abs(kp * float(get_info(z_range_state).rstrip(' m')))))
-        if float(get_info(z_range_state).rstrip(' m')) > setpoint:
             translate_up(int(abs(kp * float(get_info(z_range_state).rstrip(' m')))))
+        if float(get_info(z_range_state).rstrip(' m')) > setpoint:
+            translate_down(int(abs(kp * float(get_info(z_range_state).rstrip(' m')))))
