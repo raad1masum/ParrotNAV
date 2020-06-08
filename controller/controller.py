@@ -1,4 +1,4 @@
-from controller import correct_yaw, correct_roll, correct_pitch, correct_vertical, correct_horizontal
+from controller import correct_yaw, correct_roll, correct_pitch, correct_range, correct_vertical, correct_horizontal
 from data import data
 import threading
 
@@ -23,6 +23,13 @@ def pitch():
         correct_pitch.increment_single()
     print('ParrotNAV: Pitch Correction Complete')
 
+# range correction
+def range_correction():
+    correct_range.run()
+    while correct_range.get_range_error() != correct_range.setpoint:
+        correct_range.increment_single()
+    print('ParrotNAV: Range Correction Complete')
+
 # vertical correction
 def vertical():
     correct_vertical.run()
@@ -44,11 +51,13 @@ roll_thread = threading.Thread(target=roll)
 pitch_thread = threading.Thread(target=pitch)
 vertical_thread = threading.Thread(target=vertical)
 horizontal_thread = threading.Thread(target=horizontal)
+range_thread = threading.Thread(target=range_correction)
 
 # start threads
 yaw_thread.start()
 roll_thread.start()
 pitch_thread.start()
+range_thread.start()
 vertical_thread.start()
 horizontal_thread.start()
 
@@ -56,6 +65,7 @@ horizontal_thread.start()
 yaw_thread.join()
 roll_thread.join()
 pitch_thread.join()
+range_thread.join()
 vertical_thread.join()
 horizontal_thread.join()
 
