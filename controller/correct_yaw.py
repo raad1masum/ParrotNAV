@@ -62,10 +62,10 @@ def plot_data():
     plt.plot(yaw_data, color='r', label="yaw")
     plt.style.use('seaborn-bright')
     plt.axhline(linewidth=4, color='b')
-    plt.title('Vehicle Error in Degrees Over Time in Seconds')
+    plt.title('Vehicle Error in Degrees Over Time in Seconds', fontsize=14)
     plt.legend(loc='upper right')
-    plt.xlabel('Time (seconds)', fontsize=16)
-    plt.ylabel('Error (°)', fontsize=16)
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Error (°)')
     plt.grid()
     plt.savefig(f'data/plots/data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
 

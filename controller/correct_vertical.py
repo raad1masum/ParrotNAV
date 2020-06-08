@@ -66,11 +66,11 @@ def get_vertical_error():
 def plot_data():
     plt.plot(vertical_data, color='c', label="vertical")
     plt.style.use('seaborn-bright')
-    plt.title('Vehicle Error in Degrees Over Time in Seconds')
+    plt.title('Vehicle Error in Degrees Over Time in Seconds', fontsize=14)
     plt.legend(loc='upper right')
     plt.axhline(linewidth=4, color='b')
-    plt.xlabel('Time (seconds)', fontsize=16)
-    plt.ylabel('Error (°)', fontsize=16)
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Error (°)')
     plt.grid()
     plt.savefig(f'data/plots/data_{current_datetime.strftime("%d-%m-%Y_%H:%M:%S")}.png')
 
