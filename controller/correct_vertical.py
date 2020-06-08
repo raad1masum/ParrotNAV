@@ -66,7 +66,8 @@ def get_vertical_error():
 def plot_data():
     plt.plot(vertical_data, color='c', label="vertical")
     plt.style.use('seaborn-bright')
-    plt.legend(loc="upper right")
+    plt.title('Vehicle Error in Degrees Over Time in Seconds')
+    plt.legend(loc='upper right')
     plt.axhline(linewidth=4, color='b')
     plt.xlabel('Time (seconds)', fontsize=16)
     plt.ylabel('Error (°)', fontsize=16)
