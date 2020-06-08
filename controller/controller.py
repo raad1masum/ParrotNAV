@@ -76,3 +76,6 @@ horizontal_thread.join()
 
 # plot data
 data.plot()
+
+increment_periodic_thread.start()
+increment_periodic_thread.join()
