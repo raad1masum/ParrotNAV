@@ -1,4 +1,4 @@
-<h1 align="center">ParrotNAV</h1>
+<img alt="logo" src="./static/logo.png">
 <h3 align="center"><i>An autonomous spacecraft docking system.</i></h3>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
@@ -10,7 +10,7 @@
   <img alt="awesome" src="https://img.shields.io/badge/awesome-yes-blue">
 </p>
 
-## 🚀 Local Deployment
+## 🚀 Usage
 
 ```sh
 git clone https://github.com/raad1masum/ParrotNAV.git
