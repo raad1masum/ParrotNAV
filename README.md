@@ -1,7 +1,7 @@
 <p align="center">
 <img width="60%" alt="logo" src="./static/logo.png">
 </p>
-<h3 align="center"><i>An autonomous spacecraft docking system.</i></h3>
+<h3 align="center"><i>🚀 An autonomous spacecraft docking system.</i></h3>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
   <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
