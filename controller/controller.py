@@ -42,6 +42,7 @@ def horizontal():
     horizontal_finished = True
     print('ParrotNAV: Horizontal Correction Complete')
 
+# periodic incremental correction
 def increment_periodic():
     while True:
         if vertical_finished:
@@ -77,5 +78,6 @@ horizontal_thread.join()
 # plot data
 data.plot()
 
+# start periodic incremental threads
 increment_periodic_thread.start()
 increment_periodic_thread.join()
