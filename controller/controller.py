@@ -7,42 +7,42 @@ def yaw():
     correct_yaw.run()
     while correct_yaw.get_yaw_error() != correct_yaw.setpoint:
         correct_yaw.increment_single()
-    print('ParrotNAV: Yaw Correction Complete')
+    print('ParrotNAV: Yaw Correction Complete!')
 
 # roll correction
 def roll():
     correct_roll.run()
     while correct_roll.get_roll_error() != correct_roll.setpoint:
         correct_roll.increment_single()
-    print('ParrotNAV: Roll Correction Complete')
+    print('ParrotNAV: Roll Correction Complete!')
 
 # pitch correction
 def pitch():
     correct_pitch.run()
     while correct_pitch.get_pitch_error() != correct_pitch.setpoint:
         correct_pitch.increment_single()
-    print('ParrotNAV: Pitch Correction Complete')
+    print('ParrotNAV: Pitch Correction Complete!')
 
 # range correction
 def range_correction():
     correct_range.run()
     while correct_range.get_range_error() != correct_range.setpoint:
         correct_range.increment_single()
-    print('ParrotNAV: Range Correction Complete')
+    print('ParrotNAV: Range Correction Complete!')
 
 # vertical correction
 def vertical():
     correct_vertical.run()
     while correct_vertical.get_vertical_error() != correct_vertical.setpoint:
         correct_vertical.increment_single()
-    print('ParrotNAV: Vertical Correction Complete')
+    print('ParrotNAV: Vertical Correction Complete!')
 
 # horizontal correction
 def horizontal():
     correct_horizontal.run()
     while correct_horizontal.get_horizontal_error() != correct_horizontal.setpoint:
         correct_horizontal.increment_single()
-    print('ParrotNAV: Horizontal Correction Complete')
+    print('ParrotNAV: Horizontal Correction Complete!')
 
 
 # create threads
