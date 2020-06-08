@@ -18,8 +18,12 @@ python main.py
 ```
 
 ## 💻 Demo
-<img alt="demo" width="100%" src="./static/parrotnav_demo.gif" />
-<img alt="plot" width="100%" src="./static/demo.png" />
+<p align="center">
+<img alt="demo" src="https://media.giphy.com/media/WsYQ2kWp6cSq7NoiMp/giphy.gif"/>
+  <br>
+  <br>
+<img alt="plot" src="./static/plot.png"/>
+</p>
 
 ## 👨‍💻 Authors
 
