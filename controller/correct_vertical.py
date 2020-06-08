@@ -11,6 +11,7 @@ from controls import controls
 # set constants & gains
 kp = vertical_kp
 setpoint = vertical_setpoint
+delay = 1
 
 # data for plotting
 vertical_data = []
@@ -23,7 +24,7 @@ def translate_up(correction_rate):
     for i in range(correction_rate):
         control(controls.translate_up)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
-        sleep(1)
+    sleep(delay)
     for i in range(correction_rate):
         control(controls.translate_down)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
@@ -33,7 +34,7 @@ def translate_down(correction_rate):
     for i in range(correction_rate):
         control(controls.translate_down)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
-        sleep(1)
+    sleep(delay)
     for i in range(correction_rate):
         control(controls.translate_up)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
@@ -42,12 +43,12 @@ def translate_down(correction_rate):
 def increment_single():
     if float(get_info(z_range_state).rstrip(' m')) < setpoint:
         control(controls.translate_up)
-        sleep(1)
+        sleep(delay)
         control(controls.translate_down)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
     if float(get_info(z_range_state).rstrip(' m')) > setpoint:
         control(controls.translate_down)
-        sleep(1)
+        sleep(delay)
         control(controls.translate_up)
         vertical_data.append(float(get_info(z_range_state).rstrip(' m')))
 

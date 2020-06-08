@@ -11,6 +11,7 @@ from controls import controls
 # set constants & gains
 kp = horizontal_kp
 setpoint = horizontal_setpoint
+delay = 0
 
 # data for plotting
 horizontal_data = []
@@ -23,7 +24,7 @@ def translate_left(correction_rate):
     for i in range(correction_rate):
         control(controls.translate_left)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
-        sleep(3)
+    sleep(delay)
     for i in range(correction_rate):
         control(controls.translate_right)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
@@ -33,7 +34,7 @@ def translate_right(correction_rate):
     for i in range(correction_rate):
         control(controls.translate_right)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
-        sleep(3)
+    sleep(delay)
     for i in range(correction_rate):
         control(controls.translate_left)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
@@ -42,12 +43,12 @@ def translate_right(correction_rate):
 def increment_single():
     if float(get_info(y_range_state).rstrip(' m')) < setpoint:
         control(controls.translate_right)
-        sleep(3)
+        sleep(delay)
         control(controls.translate_left)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
     if float(get_info(y_range_state).rstrip(' m')) > setpoint:
         control(controls.translate_left)
-        sleep(3)
+        sleep(delay)
         control(controls.translate_right)
         horizontal_data.append(float(get_info(y_range_state).rstrip(' m')))
 
@@ -76,7 +77,7 @@ def plot_data():
 
 # run correction loop
 def run():
-    while int(abs(kp * float(get_info(y_range_state).rstrip(' m')))) != setpoint:
+    while int(abs(kp * float(get_info(y_range_state).rstrip(' m')))) >= 1 or int(abs(kp * float(get_info(y_range_state).rstrip(' m')))) <= -1:
         if float(get_info(y_range_state).rstrip(' m')) < setpoint:
             translate_right(int(abs(kp * float(get_info(y_range_state).rstrip(' m')))))
         if float(get_info(y_range_state).rstrip(' m')) > setpoint:
