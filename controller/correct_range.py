@@ -65,7 +65,7 @@ def get_range_error():
 
 # plot data
 def plot_data():
-    plt.plot(range_data, color='b', label="range")
+    plt.plot(range_data, color='k', label="range")
     plt.style.use('seaborn-bright')
     plt.title('Vehicle Error in Degrees Over Time in Seconds', fontsize=14)
     plt.legend(loc='upper right')
