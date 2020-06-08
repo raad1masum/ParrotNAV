@@ -1,0 +1,2 @@
+selenium=3.141.0
+matplotlib=3.2.1
