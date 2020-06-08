@@ -2,6 +2,9 @@ from controller import correct_yaw, correct_roll, correct_pitch, correct_vertica
 from data import data
 import threading
 
+vertical_finished = False
+horizontal_finished = False
+
 # yaw correction
 def yaw():
     correct_yaw.run()
