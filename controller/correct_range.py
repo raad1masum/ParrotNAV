@@ -78,7 +78,7 @@ def plot_data():
 # run correction loop
 def run():
     while int(abs(kp * float(get_info(x_range_state).rstrip(' m')))) != setpoint:
-        if float(get_info(x_range_state).rstrip(' m')) < setpoint:
-            translate_forward(int(abs(kp * float(get_info(x_range_state).rstrip(' m')))))
         if float(get_info(x_range_state).rstrip(' m')) > setpoint:
+            translate_forward(int(abs(kp * float(get_info(x_range_state).rstrip(' m')))))
+        if float(get_info(x_range_state).rstrip(' m')) < setpoint:
             translate_backward(int(abs(kp * float(get_info(x_range_state).rstrip(' m')))))
