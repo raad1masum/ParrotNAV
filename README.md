@@ -1,6 +1,4 @@
-<p align="center">
-  <h1 align="center">ParrotNAV</h1>
-</p>
+<h1 align="center">ParrotNAV</h1>
 <h3 align="center"><i>An autonomous spacecraft docking system.</i></h3>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
@@ -11,7 +9,6 @@
   <img alt="Maintained" src="https://img.shields.io/badge/Maintained-Yes-orange">
   <img alt="awesome" src="https://img.shields.io/badge/awesome-yes-blue">
 </p>
-<hr>
 
 ## 🚀 Local Deployment
 
