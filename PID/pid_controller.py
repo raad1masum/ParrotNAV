@@ -1,10 +1,10 @@
 yaw_kp = 0.47
 yaw_setpoint = 0.0
-roll_kp = 0.40
+roll_kp = 0.38
 roll_setpoint = 0.0
-pitch_kp = 0.40
+pitch_kp = 0.39
 pitch_setpoint = 0.0
-horizontal_kp = 0.39
+horizontal_kp = 0.5
 horizontal_setpoint = 0.0
 vertical_kp = 0.25
 vertical_setpoint = 0.0
