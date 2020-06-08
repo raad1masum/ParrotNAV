@@ -42,6 +42,16 @@ def horizontal():
     horizontal_finished = True
     print('ParrotNAV: Horizontal Correction Complete')
 
+def increment():
+    while True:
+        if vertical_finished:
+            while correct_vertical.get_vertical_error() != correct_vertical.setpoint:
+                correct_vertical.increment_single()
+        if horizontal_finished:
+            while correct_horizontal.get_horizontal_error() != correct_horizontal.setpoint:
+                correct_horizontal.increment_single()
+
+
 # create threads
 yaw_thread = threading.Thread(target=yaw)
 roll_thread = threading.Thread(target=roll)
