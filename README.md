@@ -24,7 +24,6 @@ python main.py
 <p align="center">
 <img alt="demo" src="https://media.giphy.com/media/WsYQ2kWp6cSq7NoiMp/giphy.gif"/>
   <br>
-  <br>
 <img alt="plot" src="./static/plot.png"/>
 </p>
 
@@ -38,7 +37,7 @@ Devpost: [Raadwan masum](https://devpost.com/raad1masum)
 
 ## 🤝 Contributing
 
-Contributions, PRs, issues and feature requests are welcome! Feel free to check out our [issues page](https://github.com/RGBHack/Spark/issues). 
+Contributions, PRs, issues and feature requests are welcome! Feel free to check out the [issues page](https://github.com/raad1masum/ParrotNAV/issues). 
 
 ## ❤️ Show your support
 
