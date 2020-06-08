@@ -8,5 +8,5 @@ range_kp = 0.09
 range_setpoint = 0.0
 horizontal_kp = 0.45
 horizontal_setpoint = 0.0
-vertical_kp = 0.16
+vertical_kp = 0.18
 vertical_setpoint = 0.0
