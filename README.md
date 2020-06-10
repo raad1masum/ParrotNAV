@@ -43,5 +43,4 @@ Contributions, PRs, issues and feature requests are welcome! Feel free to check 
 ## ❤️ Show your support
 
 Give a ⭐️ if you liked this project!
-<br>
 Hope you enjoy!
