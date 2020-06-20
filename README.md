@@ -2,7 +2,7 @@ ParrotNAV ![build](https://api.travis-ci.com/raad1masum/personal-site.svg?branch
 =========
 🚀 An autonomous spacecraft docking system.
 
-## 🚀 Usage
+## 👨‍🚀 Usage
 
 ```sh
 git clone https://github.com/raad1masum/ParrotNAV.git
