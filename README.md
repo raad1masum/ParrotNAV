@@ -1,6 +1,6 @@
 ParrotNAV ![build](https://api.travis-ci.com/raad1masum/personal-site.svg?branch=master&status=passed)
 =========
-🚀 An autonomous spacecraft docking system.
+🛸 An autonomous spacecraft docking system.
 
 ## 👨‍🚀 Usage
 
