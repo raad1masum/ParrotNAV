@@ -20,7 +20,7 @@ python main.py
 
 ## 👨‍💻 Contact
 
-Linkedin: [Raadwan Masum](https://www.linkedin.com/in/raadwan-masum-9147bb1a5)
+Linkedin: [Raadwan Masum](https://www.linkedin.com/in/raadwan-masum/)
 <br>
 Github: [raad1masum](https://github.com/raad1masum)
 <br>
